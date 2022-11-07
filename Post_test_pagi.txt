@@ -1,0 +1,45 @@
+1. Penulisan untuk membuat method pada Java
+public class Main {
+  public void myMethod() {
+    System.out.println("This is method");
+  }
+
+  public static void main(String[] args) {
+    myMethod();
+  }
+}
+
+2. Penulisan untuk memanggil method pada Java
+public class Main {
+  public void myMethod() {
+    System.out.println("This is method");
+  }
+
+  public static void main(String[] args) {
+    myMethod();
+  }
+}
+
+
+--------------------------------------------------------------
+
+Contoh yg pakai getter
+public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+
+        //Membuat Object atau instance object
+        Book book = new Book();
+        String title = book.getTitleBook();
+        System.out.println(title);
+    }
+}
+
+class Book{
+    private String titleBook = "Harry Potter";
+
+    //Method setter dan getter untuk private
+    public String getTitleBook(){
+        return titleBook;
+    }
+}

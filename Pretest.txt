@@ -1,0 +1,26 @@
+1. Java bukan singkatan dari Javascript
+2. int num = 7;
+3. System.out.println("Hello World");
+4. for (int i = 1; i < 30; i++) {
+      System.out.println(i);
+    }  
+5. Dimulai dari 0
+
+6. 
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int n = 30;
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int a= sc.nextInt();
+        System.out.println(a);
+        for (int i = 1; i <= n; i++)
+            if (i % a == 0)
+                System.out.println("Windy Nathalie Ong");
+        else{
+                System.out.println(i);
+            }
+    }
+}
