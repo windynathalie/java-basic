@@ -19,9 +19,7 @@ public class NomorTiga {
         sc.close();
 
         for (int i = 0; i < array1.length; i++) {
-
             for (int j = i + 1; j < array1.length; j++) {
-
                 int temp = 0;
                 if (array1[j] < array1[i]) {
 

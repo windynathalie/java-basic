@@ -5,14 +5,15 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class NomorDua {
+    Scanner sc = new Scanner(System.in);
+
     public ArrayList<Integer> inputArray() {
         int n;
-        Scanner sc = new Scanner(System.in);
+
         System.out.print("Enter the number of elements you want to store in Array: ");
         n = sc.nextInt();
         ArrayList<Integer> numbers = new ArrayList<Integer>(n);
 
-        // int[] array1 = new int[n];
         System.out.println("Enter the elements of the array: ");
         for (int i = 0; i < n; i++) {
             numbers.add(sc.nextInt());
