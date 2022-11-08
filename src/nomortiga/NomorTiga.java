@@ -18,7 +18,6 @@ public class NomorTiga {
         }
         sc.close();
 
-        int[] array2 = new int[n];
         for (int i = 0; i < array1.length; i++) {
 
             for (int j = i + 1; j < array1.length; j++) {
@@ -31,8 +30,7 @@ public class NomorTiga {
                     array1[j] = temp;
                 }
             }
-            array2[i] = array1[i];
         }
-        System.out.println("Sorted Array: " + Arrays.toString(array2));
+        System.out.println("Sorted Array: " + Arrays.toString(array1));
     }
 }
