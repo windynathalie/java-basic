@@ -1,40 +1,42 @@
 package nomordua;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class NomorDua {
-    public static void main(String[] args) throws Exception {
+    public ArrayList<Integer> inputArray() {
         int n;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number of elements you want to store in Array 1: ");
+        System.out.print("Enter the number of elements you want to store in Array: ");
         n = sc.nextInt();
+        ArrayList<Integer> numbers = new ArrayList<Integer>(n);
 
-        int[] array1 = new int[n];
-        System.out.println("Enter the elements of the array 1: ");
+        // int[] array1 = new int[n];
+        System.out.println("Enter the elements of the array: ");
         for (int i = 0; i < n; i++) {
-            array1[i] = sc.nextInt();
+            numbers.add(sc.nextInt());
         }
-        System.out.println(Arrays.toString(array1));
+        return (numbers);
+    }
 
-        System.out.print("Enter the number of elements you want to store in Array 2: ");
-        n = sc.nextInt();
-        int[] array2 = new int[n];
-        System.out.println("Enter the elements of the array 2: ");
-        for (int i = 0; i < n; i++) {
-            array2[i] = sc.nextInt();
-        }
-        System.out.println(Arrays.toString(array2));
-        sc.close();
+    public static void main(String[] args) throws Exception {
+        NomorDua nomorDua = new NomorDua();
+        ArrayList<Integer> array1 = nomorDua.inputArray();
+        System.out.println(array1);
+
+        System.out.println();
+
+        ArrayList<Integer> array2 = nomorDua.inputArray();
+        System.out.println(array2);
 
         HashSet<Integer> commonValue = new HashSet<>();
         System.out.println("The same value between the two arrays are:");
 
-        for (int i = 0; i < array1.length; i++) {
-            for (int j = 0; j < array2.length; j++) {
-                if (array1[i] == array2[j]) {
-                    commonValue.add(array1[i]);
+        for (int i = 0; i < array1.size(); i++) {
+            for (int j = 0; j < array2.size(); j++) {
+                if (array1.get(i) == array2.get(j)) {
+                    commonValue.add(array1.get(i));
                 }
             }
         }
