@@ -1,0 +1,5 @@
+1. Object Oriented Programming itu berorientasi pada objek. Jadi dibuat komponen2 kecil dimana sifat dari parent bisa diturunkan ke child (inheritance). Ada juga encapsulation, jadi dibuat private, jadi untuk bisa mengaksesnya pake setter getter.
+2. Atribut pada objek disebut sebagai property, state.
+3. Perbedaan object dan class 
+Kalau class itu kayak semacam rancangan awal yang isinya atribut/properti dan method.
+Kalau object itu realisasi dari class itu sendiri.

@@ -1,4 +1,4 @@
-package nomorsatu;
+package tugas1;
 
 import java.util.Scanner;
 
