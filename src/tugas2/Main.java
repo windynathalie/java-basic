@@ -3,6 +3,7 @@ package tugas2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class Main {
     Scanner sc = new Scanner(System.in);
@@ -30,22 +31,31 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
+        boolean state = true;
 
         do {
             main.menu();
 
             switch (main.choose) {
                 case "1":
-                    System.out.println("\nPlease Input your Personal Data!");
-                    System.out.print("Input your First Name: ");
+                    System.out.println("Please Input your Personal Data!");
+                    System.out.print("\nInput your First Name: ");
                     main.firstName = main.sc.nextLine();
-                    System.out.print("Input your Last Name: ");
+                    System.out.print("\nInput your Last Name: ");
                     main.lastName = main.sc.nextLine();
-                    System.out.print("Input your Domicile: ");
+                    System.out.print("\nInput your Domicile: ");
                     main.domicile = main.sc.nextLine();
-                    System.out.print("Input your Birth of Year: ");
+
+                    System.out.print("\nInput your Birth of Year: ");
                     main.birthYear = main.sc.nextInt();
                     main.sc.nextLine();
+                    while (!Pattern.compile("^(?:19|20)\\d{2}$").matcher(Integer.toString(main.birthYear)).matches()) {
+                        System.out.println("Please enter correct year (YYYY)!");
+                        System.out.print("Input your Birth of Year: ");
+                        main.birthYear = main.sc.nextInt();
+                        main.sc.nextLine();
+                        Pattern.compile("^(?:19|20)\\d{2}$").matcher(Integer.toString(main.birthYear));
+                    }
                     System.out.print("Your personal data successfully added!\n");
                     break;
 
@@ -77,14 +87,26 @@ public class Main {
 
                 case "3":
                     System.out.println("\nBelow is your Personal Data...");
-                    Person person = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
-                    person.getPerson();
+                    if (main.firstName == null || main.lastName == null || main.domicile == null) {
+                        System.out.println("Oops, your data is empty! Please input your personal data using menu 1!");
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                    } else {
+                        Person person = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
+                        person.getPerson();
+                    }
+
                     break;
 
                 case "4":
                     System.out.println("\nBelow is your Educational Background...");
-                    for (int i = 0; i < main.n; i++) {
-                        main.lists.get(i).getEducation();
+                    if (main.lists.isEmpty()) {
+                        System.out
+                                .println("Oops, your data is empty! Please input your educational data using menu 2!");
+                    } else {
+                        for (int i = 0; i < main.n; i++) {
+                            main.lists.get(i).getEducation();
+                        }
                     }
                     break;
 
@@ -92,11 +114,28 @@ public class Main {
                     System.out.println("Your input is not in accordance with the menu!");
                     break;
             }
-            System.out.print("\nApakah ingin keluar aplikasi? (y|n)? ");
+            System.out.print("\nDo you want to exit program? (y|n)? ");
             main.choose = main.sc.nextLine();
             System.out.print("\033[H\033[2J");
             System.out.flush();
-        } while (main.choose.equalsIgnoreCase("n"));
+
+            while (!main.choose.equalsIgnoreCase("y") && !main.choose.equalsIgnoreCase("n")) {
+                System.out.println("Wrong input! Please choose between (y/n)!");
+                System.out.print("Do you want to exit program?  (y/n)? ");
+                main.choose = main.sc.nextLine();
+            }
+
+            if (main.choose.equalsIgnoreCase("n")) {
+                state = true;
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            } else if (main.choose.equalsIgnoreCase("y")) {
+                state = false;
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+
+        } while (state);
 
         System.out.println("Log out.. See you next time!");
     }
