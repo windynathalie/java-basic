@@ -1,33 +1,33 @@
 package tugas3;
 
 public class Prisma extends Segitiga {
-    private double tinggiPrisma;
+    private int tinggiPrisma;
 
     // constructor with parameter
-    public Prisma(double alas, double tinggi, double tinggiPrisma) {
+    public Prisma(int alas, int tinggi, int tinggiPrisma) {
         super(alas, tinggi);
         this.tinggiPrisma = tinggiPrisma;
     }
 
-    public double getTinggiPrisma() {
+    public int getTinggiPrisma() {
         return tinggiPrisma;
     }
 
-    public void setTinggiPrisma(double tinggiPrisma) {
+    public void setTinggiPrisma(int tinggiPrisma) {
         this.tinggiPrisma = tinggiPrisma;
     }
 
-    public double hitungVolume() {
+    public int hitungVolume() {
         return super.hitungLuas() * this.tinggiPrisma;
     }
 
     @Override
-    public double hitungKeliling() {
+    public int hitungKeliling() {
         return super.hitungKeliling();
     }
 
     @Override
-    public double hitungLuas() {
+    public int hitungLuas() {
         return (2 * super.hitungLuas()) + (super.hitungKeliling() * this.tinggiPrisma);
     }
 

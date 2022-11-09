@@ -5,7 +5,7 @@ public class Kubus extends Persegi {
         super(sisi);
     }
 
-    public double hitungVolume() {
+    public int hitungVolume() {
         return super.hitungLuas() * this.getSisi();
     }
 
@@ -15,7 +15,7 @@ public class Kubus extends Persegi {
     }
 
     @Override
-    public double hitungLuas() {
+    public int hitungLuas() {
         return super.hitungLuas() * 6;
     }
 

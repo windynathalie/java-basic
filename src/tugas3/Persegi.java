@@ -21,7 +21,7 @@ public class Persegi {
         this.sisi = sisi;
     }
 
-    public double hitungLuas() {
+    public int hitungLuas() {
         return (this.sisi * this.sisi);
     }
 

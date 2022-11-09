@@ -1,8 +1,8 @@
 package tugas3;
 
 public class Segitiga {
-    private double alas;
-    private double tinggi;
+    private int alas;
+    private int tinggi;
 
     // empty constructor
     public Segitiga() {
@@ -10,37 +10,37 @@ public class Segitiga {
     }
 
     // constructor with parameter
-    public Segitiga(double alas, double tinggi) {
+    public Segitiga(int alas, int tinggi) {
         this.alas = alas;
         this.tinggi = tinggi;
     }
 
-    public double getAlas() {
+    public int getAlas() {
         return alas;
     }
 
-    public void setAlas(double alas) {
+    public void setAlas(int alas) {
         this.alas = alas;
     }
 
-    public double getTinggi() {
+    public int getTinggi() {
         return tinggi;
     }
 
-    public void setTinggi(double tinggi) {
+    public void setTinggi(int tinggi) {
         this.tinggi = tinggi;
     }
 
-    public double getSisiMiring() {
-        return Math.sqrt((getAlas() * getAlas()) + (getTinggi() * getTinggi()));
+    public int getSisiMiring() {
+        return (int) Math.sqrt((getAlas() * getAlas()) + (getTinggi() * getTinggi()));
     }
 
-    public double hitungLuas() {
-        return (0.5 * this.alas * this.tinggi);
+    public int hitungLuas() {
+        return (int) (0.5 * this.alas * this.tinggi);
     }
 
-    public double hitungKeliling() {
-        return (getAlas() + getTinggi() + getSisiMiring());
+    public int hitungKeliling() {
+        return (int) (getAlas() + getTinggi() + getSisiMiring());
     }
 
     public void getSegitiga() {

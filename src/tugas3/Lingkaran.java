@@ -21,12 +21,12 @@ public class Lingkaran {
         this.r = r;
     }
 
-    public double hitungLuas() {
-        return (Math.PI * this.r * this.r);
+    public int hitungLuas() {
+        return (int) (Math.PI * this.r * this.r);
     }
 
-    public double hitungKeliling() {
-        return (2 * Math.PI * this.r);
+    public int hitungKeliling() {
+        return (int) (2 * Math.PI * this.r);
     }
 
     public void getLingkaran() {

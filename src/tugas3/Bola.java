@@ -6,17 +6,17 @@ public class Bola extends Lingkaran {
         super(r);
     }
 
-    public double hitungVolume() {
+    public int hitungVolume() {
         return super.hitungLuas() * this.getR() * 4 / 3;
     }
 
     @Override
-    public double hitungLuas() {
+    public int hitungLuas() {
         return super.hitungLuas() * 4;
     }
 
     @Override
-    public double hitungKeliling() {
+    public int hitungKeliling() {
         return super.hitungLuas() * 4 / 3;
     }
 
