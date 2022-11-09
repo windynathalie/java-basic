@@ -18,10 +18,10 @@ public class Main {
 
     public void menu() {
         System.out.println("Menu =====================================");
-        System.out.println("1. Input your Personal Data \t\t =");
-        System.out.println("2. Input your Background Education\t =");
-        System.out.println("3. Show your Personal Data\t\t =");
-        System.out.println("4. Show your Background Education\t =");
+        System.out.println("1. Input your Personal Data");
+        System.out.println("2. Input your Background Education");
+        System.out.println("3. Show your Personal Data");
+        System.out.println("4. Show your Background Education");
         System.out.println("==========================================");
         System.out.print("Choose Menu: ");
         choose = sc.nextLine();
@@ -50,8 +50,8 @@ public class Main {
                     main.birthYear = main.sc.nextInt();
                     main.sc.nextLine();
                     while (!Pattern.compile("^(?:19|20)\\d{2}$").matcher(Integer.toString(main.birthYear)).matches()) {
-                        System.out.println("Please enter correct year (YYYY)!");
-                        System.out.print("Input your Birth of Year: ");
+                        System.out.println("\nPlease enter correct year (YYYY)!");
+                        System.out.print("\nInput your Birth of Year: ");
                         main.birthYear = main.sc.nextInt();
                         main.sc.nextLine();
                         Pattern.compile("^(?:19|20)\\d{2}$").matcher(Integer.toString(main.birthYear));
@@ -89,8 +89,6 @@ public class Main {
                     System.out.println("\nBelow is your Personal Data...");
                     if (main.firstName == null || main.lastName == null || main.domicile == null) {
                         System.out.println("Oops, your data is empty! Please input your personal data using menu 1!");
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
                     } else {
                         Person person = new Person(main.firstName, main.lastName, main.domicile, main.birthYear);
                         person.getPerson();
