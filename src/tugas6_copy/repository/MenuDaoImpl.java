@@ -1,11 +1,12 @@
-package tugas6_copy.service;
+package tugas6_copy.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import tugas6_copy.model.Menu;
+import tugas6_copy.service.MenuDao;
 
-public class MenuDaoImpl implements MenuDao<Integer> {
+public class MenuDaoImpl implements MenuDao<List<Menu>, Integer> {
     private Menu menu = new Menu();
 
     List<Menu> foods;
@@ -29,49 +30,12 @@ public class MenuDaoImpl implements MenuDao<Integer> {
         drinks.add(new Menu(4, "Watermelon Juice", 5000));
         drinks.add(new Menu(5, "Melon Juice", 8000));
         drinks.add(new Menu(6, "Milkshake", 30000));
-        drinks.add(new Menu(7, "Sprite", 20000));
+        drinks.add(new Menu(7, "Tea", 8000));
 
         packages = new ArrayList<Menu>();
-        packages.add(new Menu(1, "Package A", 30000));
-        packages.add(new Menu(2, "Package B", 40000));
-        packages.add(new Menu(3, "Package C", 50000));
-    }
-
-    @Override
-    public int getDrinkPrices(Integer index) {
-        menu = drinks.get(index);
-        return menu.getPrice();
-    }
-
-    @Override
-    public int getFoodPrices(Integer index) {
-        menu = foods.get(index);
-        return menu.getPrice();
-    }
-
-    @Override
-    public int getPackagePrices(Integer index) {
-        menu = packages.get(index);
-        return menu.getPrice();
-    }
-
-    @Override
-    public String getDrinkName(Integer index) {
-        menu = drinks.get(index);
-        return menu.getName();
-
-    }
-
-    @Override
-    public String getFoodName(Integer index) {
-        menu = foods.get(index);
-        return menu.getName();
-    }
-
-    @Override
-    public String getPackageName(Integer index) {
-        menu = packages.get(index);
-        return menu.getName();
+        packages.add(new Menu(1, "Package A (Rice + Fish + Mineral Water)", 30000));
+        packages.add(new Menu(2, "Package B (Rice + Chicken + Mineral Water)", 40000));
+        packages.add(new Menu(3, "Package C (Rice + Shrimp + Mineral Water)", 50000));
     }
 
     @Override
@@ -80,7 +44,7 @@ public class MenuDaoImpl implements MenuDao<Integer> {
         System.out.println("==========================================");
         for (Menu food : foods) {
             System.out.println(
-                    food.getIndex() + ". " + food.getName() + "\n" + "Price: Rp." + food.getPrice());
+                    food.getIndex() + ". " + food.getName() + "\n" + "Price: Rp. " + food.getPrice());
         }
     }
 
@@ -96,11 +60,23 @@ public class MenuDaoImpl implements MenuDao<Integer> {
 
     @Override
     public void getPackages() {
-        System.out.println("\nPackage");
+        System.out.println("\nPackages");
         System.out.println("==========================================");
         for (Menu packages : packages) {
             System.out.println(
                     packages.getIndex() + ". " + packages.getName() + "\n" + "Price: Rp. " + packages.getPrice());
         }
+    }
+
+    @Override
+    public int getPrices(List<Menu> data, Integer index) {
+        menu = data.get(index);
+        return menu.getPrice();
+    }
+
+    @Override
+    public String getName(List<Menu> data, Integer index) {
+        menu = data.get(index);
+        return menu.getName();
     }
 }

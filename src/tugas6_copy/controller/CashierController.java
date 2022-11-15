@@ -1,15 +1,16 @@
-package tugas6_copy;
+package tugas6_copy.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import tugas6_copy.model.Menu;
+import tugas6_copy.repository.MenuDaoImpl;
+import tugas6_copy.repository.OrderDaoImpl;
 import tugas6_copy.service.MenuDao;
-import tugas6_copy.service.MenuDaoImpl;
 import tugas6_copy.service.OrderDao;
-import tugas6_copy.service.OrderDaoImpl;
 
-public class Main {
+public class CashierController {
     static Scanner sc = new Scanner(System.in);
     static String choose;
     static boolean state = true;
@@ -20,7 +21,7 @@ public class Main {
     static List<Integer> orders = new ArrayList<Integer>(total);
     static List<Integer> types = new ArrayList<Integer>(total);
 
-    static MenuDao<Integer> menu = new MenuDaoImpl();
+    static MenuDao<List<Menu>, Integer> menu = new MenuDaoImpl();
     static OrderDao<Integer> order = new OrderDaoImpl();
 
     static void menu() {
@@ -124,6 +125,7 @@ public class Main {
                             break;
 
                         default:
+                            System.out.println("Your input is not in the list! Choose between 1 - 3");
                             break;
                     }
                     break;
@@ -138,7 +140,6 @@ public class Main {
                     amount = sc.nextInt();
                     sc.nextLine();
                     order.editOrders(index - 1, amount);
-                    order.getOrders();
                     break;
 
                 case "4":
@@ -149,7 +150,6 @@ public class Main {
                     index = sc.nextInt();
                     sc.nextLine();
                     order.deleteOrders(index - 1);
-                    order.getOrders();
                     break;
 
                 case "5":
@@ -158,7 +158,7 @@ public class Main {
                         System.out.println("==========================================");
                         order.getOrders();
                         System.out.println("\n==========================================\n");
-                        System.out.print("Input your amount: ");
+                        System.out.print("Input your amount: Rp. ");
                         amount = sc.nextInt();
                         sc.nextLine();
                         System.out.print("\033[H\033[2J");
