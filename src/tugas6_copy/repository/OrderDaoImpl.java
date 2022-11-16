@@ -113,20 +113,25 @@ public class OrderDaoImpl implements OrderDao<Integer> {
 
     @Override
     public void payment(Integer amount) {
-        System.out.println("\nPayment Receipt");
-        System.out.println("==========================================");
-        LocalDateTime dateTimeNow = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMMM yyyy, HH:mm:ss");
-        String dateTimeFormatted = dateTimeNow.format(formatter);
-        System.out.println(dateTimeFormatted);
-        getOrders();
-        System.out.println("Total PPN (11%): Rp. " + getPPN());
-        System.out.println("==========================================");
-        System.out.println("\nYour Money: Rp. " + amount);
-        System.out.println("Your Change: Rp. " + (amount - getTotalOrderPPN()));
-        System.out
-                .println("\nThanks for your order! We will be very\ngrateful if you come and order\nagain next time ~");
-        System.out.println("\nHave a nice day :)");
-        listofOrder.clear();
+        if (listofOrder.isEmpty()) {
+            System.out.println("\nNothing to pay!!!");
+        } else {
+            System.out.println("\nPayment Receipt");
+            System.out.println("==========================================");
+            LocalDateTime dateTimeNow = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, dd MMMM yyyy, HH:mm:ss");
+            String dateTimeFormatted = dateTimeNow.format(formatter);
+            System.out.println(dateTimeFormatted);
+            getOrders();
+            System.out.println("Total PPN (11%): Rp. " + getPPN());
+            System.out.println("==========================================");
+            System.out.println("\nYour Money: Rp. " + amount);
+            System.out.println("Your Change: Rp. " + (amount - getTotalOrderPPN()));
+            System.out
+                    .println(
+                            "\nThanks for your order! We will be very\ngrateful if you come and order\nagain next time ~");
+            System.out.println("\nHave a nice day :)");
+            listofOrder.clear();
+        }
     }
 }

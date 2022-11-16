@@ -1,16 +1,12 @@
 package tugas6_copy.model;
 
-public class Order extends Menu {
+public class Order {
     private int index;
     private int orders;
     private int types;
 
     public Order() {
 
-    }
-
-    public Order(int index, String name, int price) {
-        super(index, name, price);
     }
 
     public Order(int index, int orders, int types) {
